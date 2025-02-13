@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Valentine Program</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Funnel+Display:wght@300..800&family=Parkinsans:wght@300..800&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div  id="element1" class="First_page">
+      <div  class="lovehearts">
+        <img class="love_h1" src="Asset 1.png">
+        <img class="love_h2" src="Asset 2.png">
+        <img class="love_h3" src="Asset 2.png">
+      </div>
+      <img class="letter_close" src="Asset 1.svg" width="300px">
+      <br>
+      <button class="button1" onclick="showpage2()">
+        <span class="btn_text">Click Me!</span></button>
+    </div>
+    <div id="element2" class="Second_Page">
+      <p style="margin-top: 80px;">Will you be my Valentine??</p>
+      
+      
+      <div class="btn_container">
+        <div class="questions">
+          <img style="align-self: flex-start; margin-top: 10px;" class="loveletter" src="Asset 3.png">
+          <img class="q1" src="Asset 6.png">
+          <img class="q2" src="Asset 7.png">
+        </div>
+        <button style=" transition: all 0.4s ease; position: absolute; z-index: 1000; border-radius: 10px; background-color: white; color: black; border: 1px solid black; padding: 5px 10px; margin-top: 80px; font-size: 17px; left: 60px;" id="movbutton" class="button2">Absolutely Not!</button>
+        <div class="people">
+          <img class="cindy" src="Asset 5.png">
+          <div class="buttons">
+            <button onclick="showpage3()" style=" border-radius: 10px; background-color: white; color: rgba(231, 120, 138, 0.722); border: 1px solid black; padding: 5px 10px; font-size: 17px;" class="button3">Of Course</button>
+          </div>
+          <img class="caleb" src="Asset 4.png">
+        </div>
+      </div>
+      
+
+    </div>
+    <div id="element3" style="display: none;" class="Third_Page">
+      <p>Thank you!</p>
+      <br>
+      <p style="background-color: white; color: red;">I love you!!</p>
+      <div style="display: flex;">
+        <img style="width: 100px; margin-left: 100px;margin-top: 100px;" class="love_h1" src="Asset 1.png">
+        <img style="width: 70px; height: 70px; align-self: flex-end;" class="love_h2" src="Asset 2.png">
+        <img style="width: 50px; height: 50px; align-self:center;" class="love_h3" src="Asset 2.png">
+      </div>
+      
+      <div class="people1">
+        <img class="cindy1" src="Asset 5.png">
+        <img class="caleb1" src="Asset 4.png">
+      </div>
+      
+    </div>
+  </body>
+  <script>
+    function showpage2(){
+  let currentElement = document.querySelector('#element1'); 
+  let nextElement = document.querySelector('#element2');
+
+  currentElement.classList.add('hidden'); 
+  setTimeout(() => {
+    currentElement.style.display = 'none'; 
+  }, 500);
+
+  nextElement.style.display = 'block';
+  setTimeout(() => {
+    nextElement.classList.add('show');
+  }, 10 );
+}
+function showpage3(){
+  let currentElement = document.querySelector('#element2'); 
+  let nextElement = document.querySelector('#element3');
+
+  currentElement.classList.add('hidden'); 
+  setTimeout(() => {
+    currentElement.style.display = 'none'; 
+  }, 500);
+
+  nextElement.style.display = 'block';
+  setTimeout(() => {
+    nextElement.classList.add('show');
+  }, 10 );
+}
+
+  const button = document.getElementById("movbutton"); // The button that moves
+  const container = document.querySelector(".btn_container"); // Parent container of the button
+
+  button.addEventListener("mouseenter", () => {
+    // Get dimensions of the container
+    const containerRect = container.getBoundingClientRect();
+
+    // Get dimensions of the button
+    const buttonRect = button.getBoundingClientRect();
+
+    // Calculate the maximum X and Y positions the button can move within the container
+    const maxX = containerRect.width - buttonRect.width;
+    const maxY = containerRect.height - buttonRect.height;
+
+    // Generate random positions that respect the constraints
+    const newX = Math.random() * maxX;
+    const newY = Math.random() * maxY;
+
+    // Set the new position of the button, adjusting relative to the container's position
+    button.style.position = "absolute"; // Ensure the button is positioned relative to the container
+    button.style.left = `${newX}px`;
+    button.style.top = `${newY}px`;
+  });
+
+  </script>
+</html>
